@@ -21,6 +21,14 @@ var hidden_f2 = document.getElementById("hidden_f2");
 var hidden_div = document.getElementById("hidden_div");
 var price = document.getElementById("price");
 
+var phone_input = document.getElementById('phone-input');
+var maskOptions = {
+  mask: '+7(000)000-00-00',
+  lazy: false
+}
+
+var mask = new IMask(phone_input, maskOptions);
+
 var myButton = document.getElementById('myButton');
   myButton.disabled = true;
   myButton.style.backgroundColor = 'gray';
@@ -146,4 +154,14 @@ conf_room1d.addEventListener("click", function() {
   price.innerHTML = "<h3><b>900 руб.</b></h3>";
   myButton.style.backgroundColor = '';
   myButton.disabled = false;
+});
+
+phone_input.addEventListener("change", function() {
+  const phoneRegex = /^\+7\s?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{2}[-.\s]?\d{2}$/;
+  var phone_value = phone_input.value;
+  if (phoneRegex.test(phone_value)) {
+    alert('Номер телефона корректен:', phone_value);
+  } else {
+    alert('Номер телефона некорректен:', phone_value);
+  }
 });

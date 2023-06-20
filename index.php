@@ -6,9 +6,10 @@ include 'insert.php';
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <title>Заявка на услуги</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
     <div class="form-container">
@@ -94,7 +95,7 @@ include 'insert.php';
                 <label name="phone" for="phone" id="phone-mask">Телефон:</label>
             </div>
             <div class="row" id="phone-mask">
-                <input type="text" name="phone_number" id="phone" placeholder="+7(000)000-00-00" required/>
+            <input type="text" id="phone-input" name="phone_number" placeholder="+7 (___) ___-__-__">
             </div>
             <label for="activity">Вид деятельности</label>
             <input type="text" id="activity" name="activity" required>
@@ -103,6 +104,7 @@ include 'insert.php';
             <div class="pay_button"><button name="add_record" id ="myButton" type="submit">Оплатить</button></div>
         </form>
     </div>
+    <script src="https://unpkg.com/imask"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
