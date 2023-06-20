@@ -93,7 +93,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_record'])){
 
   // Запись в таблицу БД
 function insert($mysqli, $first_name, $last_name, $middle_name, $phone_number, $email, $activity, $tariff, $duration, $total_price, $service_type) {
-// 
+////
   $sql = "INSERT INTO `orders` 
   (`first_name`, 
   `last_name`,
