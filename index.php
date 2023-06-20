@@ -14,8 +14,6 @@ include 'insert.php';
     <div class="form-container">
         <h2>Заявка на услуги</h2>
         <form action="index.php" method="post">
-        
-
             <label for="services">Выберите услугу</label>
 
             <div class="main-content col-md-9 col-12">
