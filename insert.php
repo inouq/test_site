@@ -17,6 +17,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_record'])){
   $service_type = '';
   $total_price = '';
 
+//
+
   if ($_POST['tariff'] === "Тариф 'Гость'") {
     if ($_POST['duration'] === "4 часа") {
       $tariff = '1';
