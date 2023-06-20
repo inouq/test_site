@@ -22,8 +22,20 @@ var hidden_div = document.getElementById("hidden_div");
 var price = document.getElementById("price");
 
 var myButton = document.getElementById('myButton');
-  myButton.disabled = true;
-  myButton.style.backgroundColor = 'gray';
+myButton.disabled = true;
+myButton.style.backgroundColor = 'gray';
+
+const buttons = document.querySelectorAll(".tariffs_button");
+
+for (let button of buttons) {
+  button.addEventListener("click", function() {
+    myFunction(button.name);
+  })
+}
+
+function myFunction(button) {
+  alert(button);
+}
 
 // Добавляем обработчик событий "изменение"
 selectBox.addEventListener("change", function() {
@@ -63,6 +75,7 @@ guest_4h.addEventListener("click", function() {
   price.innerHTML = "<h3><b>300 руб.</b></h3>";
   myButton.style.backgroundColor = '';
   myButton.disabled = false;
+  console.log(guest_4h.name)
 });
 
 guest_1d.addEventListener("click", function() {
