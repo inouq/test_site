@@ -106,6 +106,7 @@ include 'insert.php';
             <div class="pay_button"><button name="add_record" id ="myButton" type="submit">Оплатить</button></div>
             <a href = "orders.php">Все заказы</a>
         </form>
+        <!-- sdfsdf -->
     </div>
     <script src="https://unpkg.com/imask"></script>
     <script src="js/script.js"></script>
