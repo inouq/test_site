@@ -35,3 +35,8 @@ table {
     overflow: hidden; /* Скрывает содержимое, которое не помещается в указанную ширину */
     padding: 50%;
     }
+
+.table_content {
+    width: fit-content;
+    text-align: right;
+}

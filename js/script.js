@@ -13,7 +13,6 @@ var total_price = document.getElementById("price");
 var emailInput = document.getElementById("email");
 
 var form = document.getElementById("form");
-
 //Получение объектов кнопок
 const buttons = document.querySelectorAll(".tariffs_button");
 
