@@ -13,6 +13,21 @@ var total_price = document.getElementById("price");
 var emailInput = document.getElementById("email");
 
 var form = document.getElementById("form");
+
+//Маска для поля ввода телефона --->
+var phone_input = document.getElementById('phone-input');
+var maskOptions = {
+  mask: '+7(000)000-00-00',
+  lazy: false
+}
+
+var mask = new IMask(phone_input, maskOptions);
+//<---
+
+var myButton = document.getElementById('myButton');
+myButton.disabled = true;
+myButton.style.backgroundColor = 'gray';
+
 //Получение объектов кнопок
 const buttons = document.querySelectorAll(".tariffs_button");
 
@@ -85,6 +100,37 @@ function setTariff(buttonName) {
   }
 }
 
+meeting_room.addEventListener("change", function() {
+  var selectedValue = meeting_room.options[meeting_room.selectedIndex].value;
+
+  hidden_div.style.display = "block";
+  hidden_f.value = "'Конференц-Зал'";
+  hidden_f2.value = selectedValue + " часа";
+  price.innerHTML = "<h3><b>" + selectedValue * 500 + " руб.</b></h3>";
+  myButton.style.backgroundColor = '';
+  myButton.disabled = false;
+});
+
+// Добавляем обработчик событий "изменение"
+selectBox.addEventListener("change", function() {
+  // Получаем выбранное значение списка
+  var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+  // Показываем или скрываем блок <div>
+  if (selectedValue == "workspace") {
+    divBox.style.display = "block";
+    divBox2.style.display = "none";
+    divBox3.style.display = "none";
+  } else if (selectedValue == "conference-hall") {
+    divBox2.style.display = "block";
+    divBox.style.display = "none";
+    divBox3.style.display = "none";
+  } else if (selectedValue == "meeting-room") {
+    divBox3.style.display = "block";
+    divBox.style.display = "none";
+    divBox2.style.display = "none";
+  }
+});
+
 // function validateEmail(email) {
 //   const re = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 //   return re.test(String(email).toLowerCase());
@@ -123,35 +169,3 @@ function setTariff(buttonName) {
 //     // form.submit();
 //   }
 // });
-
-var phone_input = document.getElementById('phone-input');
-var maskOptions = {
-  mask: '+7(000)000-00-00',
-  lazy: false
-}
-
-var mask = new IMask(phone_input, maskOptions);
-
-var myButton = document.getElementById('myButton');
-  myButton.disabled = true;
-  myButton.style.backgroundColor = 'gray';
-
-// Добавляем обработчик событий "изменение"
-selectBox.addEventListener("change", function() {
-  // Получаем выбранное значение списка
-  var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-  // Показываем или скрываем блок <div>
-  if (selectedValue == "workspace") {
-    divBox.style.display = "block";
-    divBox2.style.display = "none";
-    divBox3.style.display = "none";
-  } else if (selectedValue == "conference-hall") {
-    divBox2.style.display = "block";
-    divBox.style.display = "none";
-    divBox3.style.display = "none";
-  } else if (selectedValue == "meeting-room") {
-    divBox3.style.display = "block";
-    divBox.style.display = "none";
-    divBox2.style.display = "none";
-  }
-});
