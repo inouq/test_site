@@ -1,3 +1,5 @@
+
+
 .form-container {
     width: 50%;
     margin: auto;
@@ -99,8 +101,6 @@ button[type="button"]:focus {
 .hidden_field {
     display: none;
 }
-
-
 
 
 /* .tariffs {

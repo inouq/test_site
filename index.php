@@ -99,6 +99,7 @@ include 'insert.php';
             <div class="pay_button"><h3><b>Сумма к оплате: </b></h3></div>
             <div id="price" class="pay_button"></div>
             <div class="pay_button"><button name="add_record" id ="myButton" type="submit">Оплатить</button></div>
+            <a href = "orders.php">Все заказы</a>
         </form>
     </div>
     <script src="https://unpkg.com/imask"></script>
