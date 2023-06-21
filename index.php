@@ -6,17 +6,14 @@ include 'insert.php';
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Заявка на услуги</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
 </head>
 <body>
     <div class="form-container">
         <h2>Заявка на услуги</h2>
-        <form action="index.php" method="post">
+        <form id="form" action="index.php" method="post">
         
-
             <label for="services">Выберите услугу</label>
 
             <div class="main-content col-md-9 col-12">

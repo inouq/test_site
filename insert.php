@@ -120,6 +120,7 @@ function insert($mysqli, $first_name, $last_name, $middle_name, $phone_number, $
   'total_price2');
   $replace = array ($last_name, $first_name, $middle_name, $phone_number, $email, $activity, $tariff, $duration, $service_type, $total_price);
   $sql = str_replace($search, $replace, $sql);
+  echo ($sql);
   $mysqli->query($sql);
   return;
 }

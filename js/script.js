@@ -21,6 +21,49 @@ var hidden_f2 = document.getElementById("hidden_f2");
 var hidden_div = document.getElementById("hidden_div");
 var price = document.getElementById("price");
 
+var emailInput = document.getElementById("email");
+
+varform = document.getElementById("form");
+
+// function validateEmail(email) {
+//   const re = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+//   return re.test(String(email).toLowerCase());
+// }
+
+// emailInput.addEventListener('change', function() {
+//   var b = validateEmail(emailInput.value);
+//   if (b) {
+
+//   } else {
+//     const message = 'Введите корректный e-mail адрес';
+//     emailInput.setCustomValidity(message);
+//     emailInput.reportValidity();
+//   }
+// })
+
+
+// // Находим форму и поле email
+// const form = document.querySelector('form');
+// // const emailInput = form.querySelector('email'); // #
+// console.log(emailInput.value);
+// // Обрабатываем событие отправки формы
+// form.addEventListener('submit', function(event) {
+//   // Предотвращаем отправку формы
+//   event.preventDefault();
+
+//   // Получаем значение email и проверяем его
+//   const email = emailInput.value;
+//   if (!validateEmail(email)) {
+//     // Если email не валидный, то выводим сообщение с ошибкой
+//     const message = 'Введите корректный email адрес';
+//     emailInput.setCustomValidity(message);
+//     emailInput.reportValidity();
+//   } else {
+//     // Если email валидный, то отправляем форму
+//     // form.submit();
+//   }
+// });
+
 var phone_input = document.getElementById('phone-input');
 var maskOptions = {
   mask: '+7(000)000-00-00',
@@ -156,12 +199,32 @@ conf_room1d.addEventListener("click", function() {
   myButton.disabled = false;
 });
 
-phone_input.addEventListener("change", function() {
-  const phoneRegex = /^\+7\s?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{2}[-.\s]?\d{2}$/;
-  var phone_value = phone_input.value;
-  if (phoneRegex.test(phone_value)) {
-    alert('Номер телефона корректен:', phone_value);
-  } else {
-    alert('Номер телефона некорректен:', phone_value);
-  }
-});
+// emailInput.addEventListener("change", function() {
+//   const emailRegex = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+//   var email_value = emailInput.value;
+//   if (emailRegex.test(email_value)) {
+//   } else {
+//     const message = 'Введите корректный e-mail адрес';
+//     emailInput.setCustomValidity(message);
+//     emailInput.reportValidity();
+//     // alert('Номер телефона некорректен:', phone_value);
+//   }
+// });
+
+// phone_input.addEventListener("change", function() {
+//   const phoneRegex = /^\+7\s?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{2}[-.\s]?\d{2}$/;
+//   var phone_value = phone_input.value;
+//   if (phoneRegex.test(phone_value)) {
+//     form.submit();
+//   } else {
+//     const message = 'Введите корректный номер телефона';
+//     phone_input.setCustomValidity(message);
+//     phone_input.reportValidity();
+//     // alert('Номер телефона некорректен:', phone_value);
+//   }
+// });
+
+// function isValidEmail(email) {
+//   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   return emailRegex.test(email);
+// }
