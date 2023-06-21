@@ -10,6 +10,7 @@ include 'landing.php';
     <link rel="stylesheet" type="text/css" href="css/orders.css">
 </head>
 <body>
+
   <h1>Список заказов</h1>
   <table>
     <thead>
