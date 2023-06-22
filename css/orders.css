@@ -1,3 +1,4 @@
+
 table {
     border-collapse: separate;
     width: 50%;
@@ -39,4 +40,10 @@ table {
 .table_content {
     width: fit-content;
     text-align: right;
+}
+
+.switch {
+    text-align: left;
+    font-size: 20px;
+    margin-bottom: 15px;
 }

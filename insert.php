@@ -54,9 +54,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_record'])){
     } 
   } else if ($_POST['tariff'] === "Тариф 'Агентство'") {
     $tariff = '3';
-    $duration = '';
+    $duration = '7';
     $service_type = 'workspace';
-    $total_price = '';
+    $total_price = '0';
   }
 
   if($_POST['tariff'] === "'Конференц-Зал'") {
@@ -102,7 +102,7 @@ function insert($mysqli, $first_name, $last_name, $middle_name, $phone_number, $
   `email`, 
   `activity`, 
   `tariff_id`, 
-  `info_id`, 
+  `tariff_price_id`, 
   `service_type`, 
   `total_price`) 
   VALUES ('first_name2', 
