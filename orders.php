@@ -51,7 +51,7 @@ include 'update.php';
                 echo  ('<td>'. '<input name = "tariff_price_id" id = edit_field class= table_length_id value = ' . $row["tariff_price_id"] . '>' . '</td>');
                 echo ('<td>' . $row["duration"] . '</td>');
                 echo  ('<td>'. '<input name = "total_price" id = edit_field class= table_length_price value = '. $row["total_price"] . '>' . '</td>');
-                echo "<td><div class='pay_button'><button name='save_button' id ='save_button' type='submit'>Сохранить</button></div></td>";
+                echo "<td><div class='pay_button'><button name='save_button' type='submit'>Сохранить</button></div></td>";
                 echo ("</form>");
                 echo "</tr>";
               } 

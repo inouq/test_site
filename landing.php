@@ -4,7 +4,6 @@
   define('DB_PASSWORD', 'mysql');
   define('DB_NAME', 'test_site');
 
-  // $temp = '';
 $mysql = @new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); // Символ @ исп. для того, чтобы исключить описание ошибки
     if ($mysql->connect_errno) exit('Ошибка подключения к БД!');
 $mysql->set_charset('utf-8');

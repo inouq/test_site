@@ -12,7 +12,7 @@ include 'insert.php';
 <body>
     <div class="form-container">
         <h2>Заявка на услуги</h2>
-        <a class = "switch" href = "orders.php">Все заказы</a>
+        <a class = "switch" href = "orders.php">Редактирование записей</a>
         <form id="form" action="index.php" method="post">
         
             <label for="services">Выберите услугу</label>
