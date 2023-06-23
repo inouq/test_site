@@ -71,8 +71,8 @@ include 'insert.php';
                 <div class="tariffs"><h1 class ='tariffs_2'>Переговорка</h1>
                     <div class="buttons">
                         <button class = "tariffs_button" id="conf_room1h" type="button" name="conf_room1h">1 час</button>
-                        <button class = "tariffs_button" id="conf_room4h" type="button" name="conf_room1h">Пол дня (4 часа)</button>
-                        <button class = "tariffs_button" id="conf_room1d" type="button" name="conf_room1h">День</button>
+                        <button class = "tariffs_button" id="conf_room4h" type="button" name="conf_room4h">Пол дня (4 часа)</button>
+                        <button class = "tariffs_button" id="conf_room1d" type="button" name="conf_room1d">День</button>
                     </div>
                 </div>
             </div>

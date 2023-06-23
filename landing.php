@@ -1,64 +1,78 @@
 <?php 
-  define('DB_HOST', 'localhost');
-  define('DB_USER', 'root');
-  define('DB_PASSWORD', 'mysql');
-  define('DB_NAME', 'test_site');
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASSWORD', 'mysql');
+define('DB_NAME', 'test_site');
 
-$mysql = @new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); // Символ @ исп. для того, чтобы исключить описание ошибки
-    if ($mysql->connect_errno) exit('Ошибка подключения к БД!');
-$mysql->set_charset('utf-8');
-$temp_table = "CREATE TABLE temp
-(tariff_id int, 
-tariff_name text, 
-tariff_price_id int, 
-tariff_duration text, 
-tariff_sum int)";
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+if ($mysqli->connect_errno) {
+    exit('Ошибка подключения к БД!');
+}
 
-$mysql->query($temp_table);
+$mysqli->set_charset('utf8mb4');
 
-$temp_table = "SELECT 
-tariff_prices.id AS prices_id, 
-tariff_prices.id_tariff AS tariff_id,
-tariffs.title AS tariff_name,
-tariff_prices.duration AS duration,
-tariff_prices.sum AS total_price
-FROM tariff_prices
-LEFT JOIN tariffs
-ON tariff_prices.id_tariff = tariffs.id";
+$tempTableQuery = "CREATE TABLE IF NOT EXISTS temp (
+    tariff_id INT,
+    tariff_name TEXT,
+    tariff_price_id INT,
+    tariff_duration TEXT,
+    tariff_sum INT
+)";
 
-$result = $mysql->query($temp_table);
+$mysqli->query($tempTableQuery);
+
+$tariffPricesQuery = "SELECT 
+    tp.id AS prices_id,
+    tp.id_tariff AS tariff_id,
+    t.title AS tariff_name,
+    tp.duration,
+    tp.sum AS total_price
+FROM
+    tariff_prices AS tp
+    LEFT JOIN tariffs AS t ON tp.id_tariff = t.id";
+
+$result = $mysqli->query($tariffPricesQuery);
 if ($result->num_rows > 0) {
-  while($row = $result->fetch_assoc()) {
-    $temp_table = "INSERT INTO temp
-    (tariff_id,	tariff_name,	tariff_price_id,	tariff_duration,	tariff_sum)
-    VALUES ('tariff_id2', 'tariff_name2',	'tariff_price_id2',	'tariff_duration2',	'tariff_sum2')";
-    $search = array ('tariff_id2','tariff_name2','tariff_price_id2', 'tariff_duration2', 'tariff_sum2');
-    $replace = array ($row['tariff_id'], $row['tariff_name'], $row['prices_id'], $row['duration'], $row['total_price']);
-    $temp_table = str_replace($search, $replace, $temp_table);
-    $mysql->query($temp_table);
-  }
-};
-$sql = "SELECT
-orders.id,
-orders.first_name,
-orders.last_name,
-orders.middle_name,
-orders.email,
-orders.phone_number,
-orders.activity,
-orders.tariff_id,
-temp.tariff_name AS title,
-orders.tariff_price_id,
-temp.tariff_duration AS duration,
-orders.total_price
-FROM orders
-LEFT JOIN temp
-ON orders.tariff_price_id = temp.tariff_price_id"
-;
+    $insertQuery = "INSERT INTO temp (tariff_id, tariff_name, tariff_price_id, tariff_duration, tariff_sum)
+        VALUES (?, ?, ?, ?, ?)";
 
-$result = $mysql->query($sql);
-$temp_table = "DROP TABLE temp";
-$mysql->query($temp_table);
-$mysql->close();
+    $stmt = $mysqli->prepare($insertQuery);
+    $stmt->bind_param("isiss", $tariffId, $tariffName, $priceId, $duration, $totalPrice);
+
+    while ($row = $result->fetch_assoc()) {
+        $tariffId = $row['tariff_id'];
+        $tariffName = $row['tariff_name'];
+        $priceId = $row['prices_id'];
+        $duration = $row['duration'];
+        $totalPrice = $row['total_price'];
+
+        $stmt->execute();
+    }
+
+    $stmt->close();
+}
+
+$ordersQuery = "SELECT
+    o.id,
+    o.first_name,
+    o.last_name,
+    o.middle_name,
+    o.email,
+    o.phone_number,
+    o.activity,
+    o.tariff_id,
+    t.tariff_name AS title,
+    o.tariff_price_id,
+    t.tariff_duration AS duration,
+    o.total_price
+FROM
+    orders AS o
+    LEFT JOIN temp AS t ON o.tariff_price_id = t.tariff_price_id";
+
+$result = $mysqli->query($ordersQuery);
+
+$tempTableDropQuery = "DROP TABLE IF EXISTS temp";
+$mysqli->query($tempTableDropQuery);
+
+$mysqli->close();
 ?>
-

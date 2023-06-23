@@ -1,103 +1,85 @@
-
-
 .form-container {
     width: 50%;
     margin: auto;
-}
-
-form {
+  }
+  
+  form {
     display: flex;
     flex-direction: column;
-}
-
-label {
+  }
+  
+  label {
     margin-top: 10px;
-}
-
-input[type="text"], input[type="email"], select {
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  select {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 10px;
     margin-bottom: 20px;
-}
-
-select {
+  }
+  
+  select {
     background-color: #f2f2f2;
-}
-
-button[type="submit"] {
+  }
+  
+  button[type="submit"],
+  .button_gray[type="button"],
+  button[type="button"] {
     background-color: #098b6f;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
-}
-
-button[type="submit"]:hover {
-    background-color: #3e8e41;
-    text-align: right;
-}
-.button_gray[type="button"] {
+    margin-top: 10px;
+  }
+  
+  .button_gray[type="button"] {
     background-color: #45464a;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-button[type="button"] {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button[type="button"]:hover {
+  }
+  
+  button[type="button"]:hover,
+  button[type="submit"]:hover {
     background-color: #3e8e41;
-}
-
-button[type="button"]:focus {
+  }
+  
+  button[type="button"]:focus {
     background-color: #244b25;
-}
-
-.buttons {
-    margin: 5px 5px 5px;
-}
-
-.pole {
+  }
+  
+  .buttons {
+    margin: 5px;
+  }
+  
+  .pole {
     display: none;
   }
-
-.tariffs {
+  
+  .tariffs,
+  .tariffs_2 {
     background-color: rgb(232, 232, 232);
     border-radius: 5px;
-    border: 1px solid rgb(47, 144, 229);
-    margin: 8px 8px 8px;
+    margin: 8px;
     text-align: center;
-}
-
-.tariffs_2 {
-    background-color: rgb(232, 232, 232);
-    border-radius: 5px;
-    margin: 10px 10px 10px;
-    text-align: center;
-}
-
-.notification {
-    margin: 10px 10px 10px;
-}
-
-.pay_button {
+  }
+  
+  .tariffs_2 {
+    margin: 10px;
+  }
+  
+  .notification {
+    margin: 10px;
+  }
+  
+  .pay_button {
     text-align: right;
-    margin-top: -17px; 
-}
-
-.hidden_field {
+    margin-top: -17px;
+  }
+  
+  .hidden_field {
     display: none;
-}
+  }
+  
