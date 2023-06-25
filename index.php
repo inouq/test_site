@@ -79,17 +79,17 @@ include 'insert.php';
 
             <div><h4>Ваш выбор: </h4></div>
             <div id="hidden_div" class="hidden_field">
-                <input class = "apply_field" name="tariff" id="hidden_f" type="text" value="Ваш тариф">
-                <input class = "apply_field" name="duration" id="hidden_f2" type="text" value="Срок">
+                <input class = "apply_field" name="tariff" id="hidden_f" type="text" value="">
+                <input class = "apply_field" name="duration" id="hidden_f2" type="text" value="">
             </div>
                 <label name="first-name"for="first-name">Имя</label>
-            <input class = "apply_field" type="text" id="first-name" name="first-name" required>
+            <input class = "apply_field" type="text" id="first-name" name="first-name" required pattern="[a-zA-Zа-яА-ЯёЁ]+">
 
             <label name="last-name"for="last-name">Фамилия</label>
-            <input class = "apply_field" type="text" id="last-name" name="last-name" required>
+            <input class = "apply_field" type="text" id="last-name" name="last-name" required pattern="[a-zA-Zа-яА-ЯёЁ]+">
 
             <label name="middle-name"for="middle-name">Отчество</label>
-            <input class = "apply_field" type="text" id="middle-name" name="middle-name" required>
+            <input class = "apply_field" type="text" id="middle-name" name="middle-name" required pattern="[a-zA-Zа-яА-ЯёЁ]+">
 
             <label for="email" for="middle-name">E-mail</label>
             <input class = "apply_field" type="email" id="email" name="email"  placeholder="email@example.com" required>
@@ -101,7 +101,7 @@ include 'insert.php';
             <input class = "apply_field" type="text" id="phone-input" name="phone_number" placeholder="+7 (___) ___-__-__">
             </div>
             <label for="activity">Вид деятельности</label>
-            <input class = "apply_field" type="text" id="activity" name="activity" required>
+            <input class = "apply_field" type="text" id="activity" name="activity" required pattern="[a-zA-Zа-яА-ЯёЁ]+">
             <div class="pay_button"><h3><b>Сумма к оплате: </b></h3></div>
             <div id="price" class="pay_button"></div>
             <div class="pay_button"><button name="add_record" id ="myButton" type="submit">Оплатить</button></div>

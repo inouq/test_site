@@ -16,8 +16,7 @@ const form = document.getElementById("form");
 const apply_fields = document.querySelectorAll(".apply_field");
 apply_fields.forEach(field => {
   field.addEventListener("change", () => {
-    
-    ;
+    check_field();
   });
 });
 
@@ -25,7 +24,6 @@ function check_field(){
   text_fields = true;
   phone_field = true;
   email_field = true;
-  tariff_field = true;
   
   apply_fields.forEach(field => {
     if (field.name == 'first-name' || field.name == 'last-name' || 
@@ -36,11 +34,24 @@ function check_field(){
       } 
       
     }
-    if (field.name == 'phone-input') {
-      
-      alert (field.value[0]);
+    if (field.name == 'phone_number') {
+      last_char = (field.value[field.value.length - 1]);
+      if (last_char == '_') {
+        phone_field = false;
+      }
+    }
+    if (field.name == 'email') {
+      if (field.value.trim() == '') {
+        email_field = false;
+      } 
     }
   })
+  if (text_fields && phone_field && email_field) {
+    apply();
+  } else {
+    myButton.disabled = true;
+    myButton.style.backgroundColor = 'gray';
+  }
 }
 // Маска для поля ввода телефона
 const phoneInput = document.getElementById('phone-input');
@@ -67,6 +78,7 @@ function setInfo(tariffName, duration, price) {
   hiddenF.value = tariffName;
   hiddenF2.value = duration;
   totalPrice.innerHTML = `<h3><b>${price} руб.</b></h3>`;
+  check_field();
 }
 
 function apply(){
@@ -123,8 +135,8 @@ meetingRoom.addEventListener("change", () => {
   hiddenF.value = "'Конференц-Зал'";
   hiddenF2.value = selectedValue + " часа";
   price.innerHTML = `<h3><b>${selectedValue * 500} руб.</b></h3>`;
-  myButton.style.backgroundColor = '';
-  myButton.disabled = false;
+  // myButton.style.backgroundColor = '';
+  // myButton.disabled = false;
 });
 
 // Добавляем обработчик события "изменение"
