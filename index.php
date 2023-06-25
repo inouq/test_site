@@ -79,29 +79,29 @@ include 'insert.php';
 
             <div><h4>Ваш выбор: </h4></div>
             <div id="hidden_div" class="hidden_field">
-                <input name="tariff" id="hidden_f" type="text" value="Ваш тариф">
-                <input name="duration" id="hidden_f2" type="text" value="Срок">
+                <input class = "apply_field" name="tariff" id="hidden_f" type="text" value="Ваш тариф">
+                <input class = "apply_field" name="duration" id="hidden_f2" type="text" value="Срок">
             </div>
                 <label name="first-name"for="first-name">Имя</label>
-            <input type="text" id="first-name" name="first-name" required>
+            <input class = "apply_field" type="text" id="first-name" name="first-name" required>
 
             <label name="last-name"for="last-name">Фамилия</label>
-            <input type="text" id="last-name" name="last-name" required>
+            <input class = "apply_field" type="text" id="last-name" name="last-name" required>
 
             <label name="middle-name"for="middle-name">Отчество</label>
-            <input type="text" id="middle-name" name="middle-name" required>
+            <input class = "apply_field" type="text" id="middle-name" name="middle-name" required>
 
             <label for="email" for="middle-name">E-mail</label>
-            <input type="email" id="email" name="email"  placeholder="email@example.com" required>
+            <input class = "apply_field" type="email" id="email" name="email"  placeholder="email@example.com" required>
 
             <div class="row">
                 <label name="phone" for="phone" id="phone-mask">Телефон:</label>
             </div>
             <div class="row" id="phone-mask">
-            <input type="text" id="phone-input" name="phone_number" placeholder="+7 (___) ___-__-__">
+            <input class = "apply_field" type="text" id="phone-input" name="phone_number" placeholder="+7 (___) ___-__-__">
             </div>
             <label for="activity">Вид деятельности</label>
-            <input type="text" id="activity" name="activity" required>
+            <input class = "apply_field" type="text" id="activity" name="activity" required>
             <div class="pay_button"><h3><b>Сумма к оплате: </b></h3></div>
             <div id="price" class="pay_button"></div>
             <div class="pay_button"><button name="add_record" id ="myButton" type="submit">Оплатить</button></div>

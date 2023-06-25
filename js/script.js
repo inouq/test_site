@@ -13,6 +13,35 @@ const totalPrice = document.getElementById("price");
 const emailInput = document.getElementById("email");
 const form = document.getElementById("form");
 
+const apply_fields = document.querySelectorAll(".apply_field");
+apply_fields.forEach(field => {
+  field.addEventListener("change", () => {
+    
+    ;
+  });
+});
+
+function check_field(){
+  text_fields = true;
+  phone_field = true;
+  email_field = true;
+  tariff_field = true;
+  
+  apply_fields.forEach(field => {
+    if (field.name == 'first-name' || field.name == 'last-name' || 
+    field.name == 'middle-name' || field.name == 'activity' || 
+    field.name == 'tariff' || field.name == 'duration') {
+      if (field.value.trim() == '') {
+        text_fields = false;
+      } 
+      
+    }
+    if (field.name == 'phone-input') {
+      
+      alert (field.value[0]);
+    }
+  })
+}
 // Маска для поля ввода телефона
 const phoneInput = document.getElementById('phone-input');
 const maskOptions = {
@@ -40,10 +69,14 @@ function setInfo(tariffName, duration, price) {
   totalPrice.innerHTML = `<h3><b>${price} руб.</b></h3>`;
 }
 
-function setTariff(buttonName) {
-  hiddenDiv.style.display = "block";
+function apply(){
   myButton.style.backgroundColor = '';
   myButton.disabled = false;
+
+}
+
+function setTariff(buttonName) {
+  hiddenDiv.style.display = "block";
 
   switch (buttonName) {
     case "guest_4h":
